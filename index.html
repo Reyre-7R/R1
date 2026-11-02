@@ -5,42 +5,71 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ado - ROCKSTAR</title>
 <style>
+  /* 整体背景：暗黑偏红的渐变 */
   body {
     margin: 0;
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #111;
+    background: linear-gradient(135deg, #1a0000, #330000, #0a0a0a);
     color: #fff;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   }
+
+  /* 毛玻璃质感的卡片 */
   .card {
-    width: 90%;
-    max-width: 420px;
-    background: #1c1c1e;
-    border-radius: 20px;
-    padding: 28px 22px;
-    box-shadow: 0 10px 30px rgba(0,0,0,.4);
-  }
-  h1 { font-size: 22px; margin: 0 0 6px; }
-  .artist { color: #aaa; margin: 0 0 24px; font-size: 15px; }
-  .btn {
-    display: block;
+    width: 85%;
+    max-width: 380px;
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    padding: 32px 24px;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
     text-align: center;
+  }
+
+  /* 标题样式 */
+  h1 { font-size: 26px; margin: 0 0 8px; letter-spacing: 1px; }
+  .artist { color: #ff4d4d; margin: 0 0 28px; font-size: 16px; font-weight: 600; letter-spacing: 2px; }
+
+  /* 按钮基础样式 */
+  .btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
     padding: 14px;
-    margin: 10px 0;
-    border-radius: 12px;
+    margin: 12px 0;
+    border-radius: 14px;
     text-decoration: none;
     color: #fff;
     font-size: 16px;
     font-weight: 600;
+    transition: transform 0.15s, opacity 0.15s;
   }
+
+  /* 点按反馈效果 */
+  .btn:active { transform: scale(0.97); opacity: 0.8; }
+
+  /* 图标通用样式（将图标固定在左侧并反白处理） */
+  .btn img {
+    position: absolute;
+    left: 18px;
+    width: 24px;
+    height: 24px;
+    filter: brightness(0) invert(1); /* 让黑色图标变白 */
+  }
+
+  /* 各平台专属颜色 */
   .youtube { background: #ff0033; }
   .spotify { background: #1db954; }
   .apple { background: #fa243c; }
-  .universal { background: #555; }
-  .tip { color: #888; font-size: 12px; line-height: 1.5; margin-top: 18px; }
+  .universal { background: #333; border: 1px solid rgba(255,255,255,0.2); }
+
+  .tip { color: #888; font-size: 12px; line-height: 1.5; margin-top: 20px; }
 </style>
 </head>
 <body>
@@ -48,16 +77,28 @@
     <h1>ロックスター (ROCKSTAR)</h1>
     <p class="artist">Ado</p>
 
-    <a class="btn youtube" href="https://youtu.be/hRJpiCZlLX8" target="_blank" rel="noopener">YouTube 观看 MV</a>
-    <a class="btn spotify" href="https://open.spotify.com/track/22wzqoECjwKEZEw37WbAXX" target="_blank" rel="noopener">Spotify 播放</a>
-    <a id="appleMusicBtn" class="btn apple" href="https://music.apple.com/jp/song/1802574373" target="_blank" rel="noopener">Apple Music 播放</a>
-    <a class="btn universal" href="https://ado.lnk.to/best_adobumID" target="_blank" rel="noopener">更多平台</a>
+    <!-- 带有图片的按钮 -->
+    <a class="btn youtube" href="https://youtu.be/hRJpiCZlLX8" target="_blank" rel="noopener">
+      <img src="https://cdn.simpleicons.org/youtube/white" alt="YT"> YouTube 观看 MV
+    </a>
+    
+    <a class="btn spotify" href="https://open.spotify.com/track/22wzqoECjwKEZEw37WbAXX" target="_blank" rel="noopener">
+      <img src="https://cdn.simpleicons.org/spotify/white" alt="SP"> Spotify 播放
+    </a>
+    
+    <a id="appleMusicBtn" class="btn apple" href="https://music.apple.com/jp/song/1802574373" target="_blank" rel="noopener">
+      <img src="https://cdn.simpleicons.org/applemusic/white" alt="AM"> Apple Music 播放
+    </a>
+    
+    <a class="btn universal" href="https://ado.lnk.to/best_adobumID" target="_blank" rel="noopener">
+      <img src="https://cdn.simpleicons.org/linktree/white" alt="Link"> 更多平台
+    </a>
 
     <p class="tip">如果点击后没有跳转到 App，请点击右上角“在浏览器中打开”后再试。</p>
   </div>
 
 <script>
-  // Android 上把 Apple Music 链接换成 intent://，更容易唤起 App
+  // 自动识别安卓系统，并替换 Apple Music 的跳转链接
   (function () {
     var isAndroid = /Android/i.test(navigator.userAgent);
     var btn = document.getElementById('appleMusicBtn');
