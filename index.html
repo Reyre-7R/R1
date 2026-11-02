@@ -38,8 +38,8 @@
 
   /* 独立专辑封面 */
   .album-cover {
-    /* 最小160px，理想占屏幕宽度35%，最大360px */
-    width: clamp(160px, 35vw, 360px);
+    /* 最小160px，理想占屏幕宽度45%，最大400px */
+    width: clamp(160px, 45vw, 400px);
     aspect-ratio: 1 / 1;
     border-radius: 8px;
     object-fit: cover;
@@ -57,11 +57,10 @@
     padding: 24px;
     text-align: left;
     box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
-    flex: 1;
-    max-width: 380px; /* 弹窗最大宽度放宽 */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex: none;
+    width: fit-content; /* 自适应-宽 */
+    min-width:140px;
+    max-width:220px;
   }
 
   /* 字体响应式放大 */
