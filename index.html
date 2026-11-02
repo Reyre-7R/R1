@@ -22,13 +22,12 @@
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    
-    overflow: hidden; /* 防止内容溢出 */
+    overflow: hidden; 
   }
 
   /* ================= 上半部分（封面 + 弹窗） ================= */
   .top-half {
-    height: 50vh; /* 稍微压缩上半部分，给下方按钮留空间 */
+    height: 50vh; 
     display: flex;
     align-items: center;
     justify-content: center;
@@ -67,35 +66,35 @@
 
   /* ================= 下半部分（链接按钮） ================= */
   .bottom-half {
-    height: 60vh; /* 扩大下半部分 */
+    height: 60vh; 
     display: flex;
     flex-direction: column;
     align-items: center; 
     justify-content: center; 
     padding-bottom: 20px;
     box-sizing: border-box;
-    overflow-y: auto; /* 按钮多时可滚动 */
+    overflow-y: auto; 
   }
 
-  /* 按钮通用半透明样式（已变窄） */
+  /* 按钮通用半透明样式 */
   .btn {
-    width: 70%; /* 宽度正常 */
-    max-width: 300px; /* 限制最大宽度 */
+    width: 70%;
+    max-width: 300px; 
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
-    padding: 12px; /* 稍微减小内边距 */
-    margin: 6px 0; /* 减小间距 */
+    padding: 12px; 
+    margin: 6px 0; 
     border-radius: 10px;
     text-decoration: none;
     color: #fff;
-    font-size: 15px; /* 字体稍微改小一点，适配窄按钮 */
+    font-size: 15px; 
     font-weight: 600;
     transition: transform 0.15s, background 0.15s;
     
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
     border: 1px solid rgba(255, 255, 255, 0.2);
     box-shadow: 0 4px 12px rgba(0,0,0,0.2);
   }
@@ -105,30 +104,30 @@
   /* 图标设置 */
   .btn img {
     position: absolute;
-    left: 14px; /* 图标位置稍微靠左 */
+    left: 14px; 
     width: 20px;
     height: 20px;
     filter: brightness(0) invert(1);
   }
 
   /* 各平台半透明专属色 */
-  .youtube { background: rgba(255, 0, 51, 0.65); }
-  .spotify { background: rgba(29, 185, 84, 0.65); }
-  .apple   { background: rgba(30, 30, 30, 0.75); } /*苹果音乐黑灰*/
-  .qqmusic { background: rgba(255, 204, 0, 0.65); } /* QQ音乐黄 */
-  .netease { background: rgba(199, 29, 35, 0.65); } /* 网易云红 */
-  .kugou   { background: rgba(0, 140, 255, 0.65); } /* 酷狗蓝 */
-  .universal { background: rgba(255, 255, 255, 0.15); }
+  .youtube { background: rgba(255, 0, 51, 0.45); }
+  .spotify { background: rgba(29, 185, 84, 0.45); }
+  .apple   { background: rgba(30, 30, 30, 0.55); } 
+  .qqmusic { background: rgba(255, 240, 0, 0.5); } /* 极高亮度的明黄色 */
+  .universal { background: rgba(255, 255, 255, 0.1); }
 
-  .tip { 
-    /* 专门控制靠右的“播放”文字 */
+  /* 专门控制靠右的“播放”文字 */
   .action-text {
     position: absolute;
-    right: 16px;     /* 距离右边的距离 */
-    font-size: 12px; /* 字体缩小 */
-    font-weight: normal; /* 取消加粗让它更小巧 */
-    opacity: 0.8;    /* 稍微带点透明感 */
+    right: 16px;     
+    font-size: 12px; 
+    font-weight: normal; 
+    opacity: 0.8;    
   }
+
+  /* 底部提示语 */
+  .tip { 
     color: #bbb; 
     font-size: 12px; 
     margin-top: 12px; 
@@ -148,49 +147,32 @@
     </div>
   </div>
 
-  <!-- 下半部分：加宽区域放置更多链接 -->
+  <!-- 下半部分：链接按钮 -->
   <div class="bottom-half">
-   <!-- YouTube 保持不变 -->
+    
     <a class="btn youtube" href="https://youtu.be/hRJpiCZlLX8" target="_blank" rel="noopener">
       <img src="https://cdn.simpleicons.org/youtube/white" alt="YT"> YouTube 观看 MV
     </a>
     
-    <!-- Spotify 修改如下 -->
     <a class="btn spotify" href="https://open.spotify.com/track/22wzqoECjwKEZEw37WbAXX" target="_blank" rel="noopener">
       <img src="https://cdn.simpleicons.org/spotify/white" alt="SP"> 
       <span>Spotify</span>
       <span class="action-text">播放</span>
     </a>
     
-    <!-- Apple Music 修改如下 -->
     <a id="appleMusicBtn" class="btn apple" href="https://music.apple.com/jp/song/1802574373" target="_blank" rel="noopener">
       <img src="https://cdn.simpleicons.org/applemusic/white" alt="AM"> 
       <span>Apple Music</span>
       <span class="action-text">播放</span>
     </a>
 
-    <!-- QQ音乐 修改如下 -->
-    <a class="btn qqmusic" href="https://y.qq.com/n/ryqq/search?w=Ado%20ROCKSTAR" target="_blank" rel="noopener">
+    <!-- 你只需要替换下面 QQ 音乐的链接 -->
+    <a class="btn qqmusic" href="https://c6.y.qq.com/base/fcgi-bin/u?__=DJ6WyBEsqfjL" target="_blank" rel="noopener">
       <img src="https://cdn.simpleicons.org/qqmusic/white" alt="QQ"> 
       <span>QQ音乐</span>
       <span class="action-text">播放</span>
     </a>
 
-    <!-- 网易云音乐 修改如下 -->
-    <a class="btn netease" href="https://music.163.com/#/search/m/?s=Ado%20ROCKSTAR" target="_blank" rel="noopener">
-      <img src="https://cdn.simpleicons.org/neteasecloudmusic/white" alt="163"> 
-      <span>网易云音乐</span>
-      <span class="action-text">播放</span>
-    </a>
-
-    <!-- 酷狗音乐 修改如下 -->
-    <a class="btn kugou" href="https://www.kugou.com/search?keyword=Ado%20ROCKSTAR" target="_blank" rel="noopener">
-      <img src="https://cdn.simpleicons.org/kugou/white" alt="KG"> 
-      <span>酷狗音乐</span>
-      <span class="action-text">播放</span>
-    </a>
-
-    <!-- 更多平台 修改如下 -->
     <a class="btn universal" href="https://ado.lnk.to/best_adobumID" target="_blank" rel="noopener">
       <img src="https://cdn.simpleicons.org/linktree/white" alt="Link"> 
       <span>更多平台</span>
