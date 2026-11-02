@@ -12,9 +12,17 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #1a0000, #330000, #0a0a0a);
     color: #fff;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    
+    /* 👇 下面是新增的背景代码 👇 */
+    background-image: 
+      linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)), /* 黑色半透明遮罩 */
+      url('https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/94/63/b0/9463b0c2-92b6-f1f6-32a6-237b8d1a2df6/22UMGIM47880.rgb.jpg/1000x1000bb.jpg'); /* 专辑图链接 */
+    background-size: cover;      /* 等比放大铺满屏幕 */
+    background-position: center; /* 图片居中显示 */
+    background-repeat: no-repeat;
+    background-attachment: fixed;
   }
 
   /* 毛玻璃质感的卡片 */
