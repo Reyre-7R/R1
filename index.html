@@ -71,7 +71,7 @@
 
   /* ================= 下半部分（链接按钮） ================= */
   .bottom-half {
-    height: 60vh; 
+    height: 50vh; /* 修正为50vh，防止页面溢出 */
     display: flex;
     flex-direction: column;
     align-items: center; 
@@ -84,17 +84,17 @@
  /* 按钮通用半透明样式 */
   .btn {
     width: 70%;
-    max-width: 350px; /* 按钮最大宽度放宽 */
+    max-width: 350px;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
-    padding: 14px; /* 高度增加 */
+    padding: 14px; 
     margin: 6px 0; 
     border-radius: 10px;
     text-decoration: none;
     color: #fff;
-    font-size: 16px; /* 字体微调 */
+    font-size: 16px; 
     font-weight: 600;
     transition: transform 0.15s, background 0.15s;
     
@@ -110,12 +110,19 @@
   .btn img {
     position: absolute;
     left: 16px; 
-    width: 22px; /* 图标微调 */
+    width: 22px; 
     height: 22px;
     filter: brightness(0) invert(1);
   }
+
+  /* 👇 补上了各平台半透明专属色（数字0.3越小越透明） 👇 */
+  .youtube { background: rgba(255, 0, 51, 0.25); }
+  .spotify { background: rgba(29, 185, 84, 0.25); }
+  .apple   { background: rgba(30, 30, 30, 0.25); }
+  .qqmusic { background: rgba(255, 240, 0, 0.35); } 
+  .universal { background: rgba(255, 255, 255, 0.1); }
   
-  /* 靠右的“播放”文字（在原来位置即可，字体微调） */
+  /* 靠右的“播放”文字 */
   .action-text {
     position: absolute;
     right: 16px;     
@@ -164,7 +171,7 @@
       <span class="action-text">播放</span>
     </a>
 
-    <!-- 你只需要替换下面 QQ 音乐的链接 -->
+    <!-- 已经替换好你找的 QQ 音乐链接 -->
     <a class="btn qqmusic" href="https://c6.y.qq.com/base/fcgi-bin/u?__=DJ6WyBEsqfjL" target="_blank" rel="noopener">
       <img src="https://cdn.simpleicons.org/qqmusic/white" alt="QQ"> 
       <span>QQ音乐</span>
